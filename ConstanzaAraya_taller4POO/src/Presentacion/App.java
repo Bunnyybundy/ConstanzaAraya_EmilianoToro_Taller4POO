@@ -1,50 +1,27 @@
 package Presentacion;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import Logica.Sistema;
 
 public class App {
 	
 	private static Scanner s;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 	
 		s = new Scanner(System.in);
+		Sistema sistema = Sistema.getInstancia();
 		
-		leerUsuarios("usuarios.txt");
-		leerRegistros("registros.txt");
-		leerNotas("notas.txt");
-		leerEstudiantes("estudiantes.txt");
-		leerCursos("cursos.txt");
-		leerCertificaciones("certificaciones.txt");
-		leerAsigCertificaciones("asignaturas_certificaciones.txt");
+		sistema.leerUsuarios("usuarios.txt");
+		sistema.leerRegistros("registros.txt");
+		sistema.leerNotas("notas.txt");
+		sistema.leerEstudiantes("estudiantes.txt");
+		sistema.leerCursos("cursos.txt");
+		sistema.leerCertificaciones("certificaciones.txt");
+		sistema.leerAsigCertificaciones("asignaturas_certificaciones.txt");
 	}
 
-	private static void leerUsuarios(String string) {
-		
-	}
-
-	private static void leerRegistros(String string) {
-		
-	}
-
-	private static void leerNotas(String string) {
-		
-	}
-
-	private static void leerEstudiantes(String string) {
-		
-	}
-
-	private static void leerCursos(String string) {
-		
-	}
-
-	private static void leerCertificaciones(String string) {
-		
-	}
-
-	private static void leerAsigCertificaciones(String string) {
-		
-	}
 
 }
