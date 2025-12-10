@@ -14,6 +14,48 @@ public class Estudiante {
 		this.correoE = correoE;
 		this.contraseña = contraseña;
 	}
+
+	public String getRut() {
+		return rut;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getCarrera() {
+		return carrera;
+	}
+
+	public String getCorreoE() {
+		return correoE;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setRut(String rut) {
+		this.rut = rut;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setCarrera(String carrera) {
+		this.carrera = carrera;
+	}
+
+	public void setCorreoE(String correoE) {
+		this.correoE = correoE;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
+	
 	
 	
 }

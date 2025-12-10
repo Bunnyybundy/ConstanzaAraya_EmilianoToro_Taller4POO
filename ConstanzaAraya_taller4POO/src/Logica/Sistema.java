@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Dominio.*;
+import Presentacion.Curso;
 
 public class Sistema {
 	private static Scanner s;
@@ -138,5 +139,26 @@ public class Sistema {
 	}
 	public static ArrayList<Estudiante> getEstudiantes(){
 		return estudiantes;
+	}
+	
+	public static ArrayList<Certificacion> getCertificaciones(){
+		return certificaciones;
+		
+	}
+	public static Estudiante buscarEstudiantePorRut(String rut) {
+	    for (Estudiante e : estudiantes) {
+	        if (e.getRut().equals(rut)) {
+	            return e;
+	        }
+	    }
+	    return null;
+	}
+	public static Curso buscarCursoPorNRC(String nrc) {
+	    for (Curso c : cursos) {
+	        if (c.getNrc().equals(nrc)) {
+	            return c;
+	        }
+	    }
+	    return null;
 	}
 }
