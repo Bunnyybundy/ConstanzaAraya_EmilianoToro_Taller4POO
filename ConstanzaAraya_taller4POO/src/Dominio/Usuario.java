@@ -1,5 +1,26 @@
 package Dominio;
 
-public class Usuario {
+public abstract class Usuario {
+	private String nombre;
+	private String contraseña;
+	private String rol;
+	
+	public Usuario(String nombre, String contraseña, String rol) {
+		this.nombre = nombre;
+		this.contraseña = contraseña;
+		this.rol = rol;
+	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+	
+	public boolean validarContraseña(String clave) {
+		return this.contraseña.equals(clave);
+	}
+	
 }
