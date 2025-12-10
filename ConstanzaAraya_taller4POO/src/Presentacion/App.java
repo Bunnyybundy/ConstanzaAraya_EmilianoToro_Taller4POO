@@ -23,5 +23,4 @@ public class App {
 		sistema.leerAsigCertificaciones("asignaturas_certificaciones.txt");
 	}
 
-
 }

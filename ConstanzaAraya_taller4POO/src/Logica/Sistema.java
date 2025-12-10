@@ -12,6 +12,10 @@ public class Sistema {
 	
 	private static ArrayList<Usuario> usuarios = new ArrayList<>();
 	private static ArrayList<Curso> cursos = new ArrayList<>();
+	private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
+	private static ArrayList<Certificacion> certificaciones = new ArrayList<>();
+	private static ArrayList<AsignaturasCertificacion> asignaturas = new ArrayList<>();
+	
 	private static Sistema instancia;
 	
 	private Sistema() {
@@ -69,6 +73,13 @@ public class Sistema {
 		while(s.hasNextLine()) {
 			String linea = s.nextLine();
 			String parte[] = linea.split(";");
+			String rut = parte[0];
+			String nombre = parte[1];
+			String carrera = parte[2]; 
+			String correoE = parte[3];
+			String contraseña = parte[4];
+			
+			Estudiante estudiante = new Estudiante(rut,nombre,carrera,correoE, contraseña);
 			
 		}
 	}
@@ -83,25 +94,49 @@ public class Sistema {
 			int semestre = Integer.parseInt(parte[2]); 
 			int creditos = Integer.parseInt(parte[3]);
 			String area = parte[4];
-			//falta como leer la informacion extra que tienen solo algunas lineas
+			ArrayList<String> prerrequisitos = new ArrayList<>();
+			if(parte.length > 5 && !parte[5].isEmpty()) {
+				for(String p : parte[5].split(";")) {
+					prerrequisitos.add(p.trim());
+				}
+			}
+			Curso curso = new Curso(nrc,nombre, semestre,creditos,area,prerrequisitos);
+			cursos.add(curso);
+			
 		}
 	}
 
 	public static void leerCertificaciones(String archivo) throws FileNotFoundException {
 		s = new Scanner(new File(archivo));
 		while(s.hasNextLine()) {
+			String linea = s.nextLine();
+			String parte[] = linea.split(";");
+			String id = parte[0];
+			String nombre = parte[1];
+			String descripcion = parte[2]; 
+			int requisitos = Integer.parseInt(parte[3]);
+			int validez = Integer.parseInt(parte[4]);
 			
+			Certificacion certificacion = new Certificacion(id,nombre,descripcion,requisitos,validez);
 		}
 	}
 
 	public static void leerAsigCertificaciones(String archivo) throws FileNotFoundException {
 		s = new Scanner(new File(archivo));
 		while(s.hasNextLine()) {
+			String linea = s.nextLine();
+			String parte[] = linea.split(";");
+			String id = parte[0];
+			String nrc = parte[1];
 			
+			AsignaturasCertificacion asigCertificacion = new AsignaturasCertificacion(id, nrc);
 		}
 	}
 	
 	public static ArrayList<Usuario> getUsuarios() {
 		return usuarios;
+	}
+	public static ArrayList<Estudiante> getEstudiantes(){
+		return estudiantes;
 	}
 }
