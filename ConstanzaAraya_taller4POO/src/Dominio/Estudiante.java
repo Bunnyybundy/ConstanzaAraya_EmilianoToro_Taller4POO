@@ -1,7 +1,7 @@
 package Dominio;
 
-import Visitors.visitable;
-import Visitors.visitor;
+import Patrones.visitable;
+import Patrones.visitor;
 
 public class Estudiante implements visitable {
 	private String rut;

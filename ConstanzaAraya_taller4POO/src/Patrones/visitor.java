@@ -1,4 +1,4 @@
-package Visitors;
+package Patrones;
 
 import Dominio.Certificacion;
 import Dominio.Curso;

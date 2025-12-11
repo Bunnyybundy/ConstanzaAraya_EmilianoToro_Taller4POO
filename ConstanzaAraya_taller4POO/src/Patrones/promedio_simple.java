@@ -1,4 +1,4 @@
-package Estrategia;
+package Patrones;
 
 public class promedio_simple implements estrategia_promedio {
     public double calcular(double[] notas) {

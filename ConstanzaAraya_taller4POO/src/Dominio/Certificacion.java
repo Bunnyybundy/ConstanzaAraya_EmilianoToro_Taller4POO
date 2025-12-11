@@ -1,7 +1,7 @@
 package Dominio;
 
-import Visitors.visitable;
-import Visitors.visitor;
+import Patrones.visitable;
+import Patrones.visitor;
 
 public class Certificacion implements visitable  {
 	private String id;

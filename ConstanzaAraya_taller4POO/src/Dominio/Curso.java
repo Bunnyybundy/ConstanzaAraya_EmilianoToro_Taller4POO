@@ -1,8 +1,9 @@
 package Dominio;
 
 import java.util.List;
-import Visitors.visitable;
-import Visitors.visitor;
+
+import Patrones.visitable;
+import Patrones.visitor;
 
 public class Curso implements visitable {
 	private String nrc;

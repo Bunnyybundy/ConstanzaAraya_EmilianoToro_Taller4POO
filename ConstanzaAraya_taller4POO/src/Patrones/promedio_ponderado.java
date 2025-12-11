@@ -1,4 +1,4 @@
-package Estrategia;
+package Patrones;
 
 public class promedio_ponderado implements estrategia_promedio {
     private double[] pesos;
