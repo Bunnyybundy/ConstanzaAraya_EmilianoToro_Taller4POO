@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import Dominio.*;
 import Dominio.Curso;
+import Patrones.*;
+
 
 public class Sistema {
 	private static Scanner s;
@@ -160,5 +162,11 @@ public class Sistema {
 	        }
 	    }
 	    return null;
+	}
+	
+	public static void aplicarVisitorCertificaciones(visitor v) {
+	    for (Certificacion c : certificaciones) {
+	        c.accept(v);
+	    }
 	}
 }
