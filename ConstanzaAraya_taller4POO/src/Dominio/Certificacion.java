@@ -1,6 +1,9 @@
 package Dominio;
 
-public class Certificacion {
+import Visitors.visitable;
+import Visitors.visitor;
+
+public class Certificacion implements visitable  {
 	private String id;
 	private String nombre;
 	private String descripcion;
@@ -22,7 +25,11 @@ public class Certificacion {
 	public String getNombre() {
 		return nombre;
 	}
-
+	
+    @Override
+    public void accept(visitor v) {
+        v.visit(this);
+    }
 	
 	
 }
