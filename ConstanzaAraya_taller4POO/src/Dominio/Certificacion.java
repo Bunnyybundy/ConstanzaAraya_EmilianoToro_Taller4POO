@@ -26,10 +26,47 @@ public class Certificacion implements visitable  {
 		return nombre;
 	}
 	
-    @Override
+	
+	
+	
+    public String getDescripcion() {
+		return descripcion;
+	}
+
+	public int getRequisitosCreditos() {
+		return requisitosCreditos;
+	}
+
+	public int getValidez() {
+		return validez;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setRequisitosCreditos(int requisitosCreditos) {
+		this.requisitosCreditos = requisitosCreditos;
+	}
+
+	public void setValidez(int validez) {
+		this.validez = validez;
+	}
+
+	@Override
     public void accept(visitor v) {
         v.visit(this);
     }
+    
+    
 	
 	
 }

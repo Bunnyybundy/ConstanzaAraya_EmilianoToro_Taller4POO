@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Dominio.*;
-import Presentacion.Curso;
+import Dominio.Curso;
 
 public class Sistema {
 	private static Scanner s;
