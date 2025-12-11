@@ -29,8 +29,10 @@ public class VentanaAdmin extends JFrame{
 			if(rol.equalsIgnoreCase("Estudiante")) {
 				String rut = JOptionPane.showInputDialog("RUT: ");
 				String carrera = JOptionPane.showInputDialog("Carrera: ");
+				String semestreStr = JOptionPane.showInputDialog("Semestre: ");
+				int semestre = Integer.parseInt(semestreStr);
 				String correoE = JOptionPane.showInputDialog("Correo: ");
-				Estudiante estudiante = new Estudiante(rut,nombre,carrera,correoE,contraseña);
+				Estudiante estudiante = new Estudiante(rut,nombre,carrera,semestre,correoE,contraseña);
 				Sistema.getUsuarios().add(estudiante);
 				Sistema.getEstudiantes().add(estudiante);
 			}else {

@@ -14,13 +14,23 @@ public abstract class Usuario {
 	public String getNombre() {
 		return nombre;
 	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 	public String getRol() {
 		return rol;
 	}
 	
 	public boolean validarContraseña(String clave) {
-		return this.contraseña.equals(clave);
+		return this.contraseña!= null && this.contraseña.equals(clave);
 	}
 	
 }

@@ -40,8 +40,12 @@ public class Sistema {
 		
 		}
 	}
-    public static Usuario login(String usuario, String contraseña) {
-		
+    public static Usuario login(String nombre, String contraseña) {
+		for(Usuario u: usuarios) {
+			if(u.getNombre().equals(nombre) && u.validarContraseña(contraseña)) {
+				return u;
+			}
+		}
 		return null;
 	}
 
@@ -83,11 +87,12 @@ public class Sistema {
 			String rut = parte[0];
 			String nombre = parte[1];
 			String carrera = parte[2]; 
-			String correoE = parte[3];
-			String contraseña = parte[4];
+			int semestre = Integer.parseInt(parte[3]);
+			String correoE = parte[4];
+			String contraseña = parte[5];
 			
-			Estudiante estudiante = new Estudiante(rut,nombre,carrera,correoE, contraseña);
-			
+			Estudiante estudiante = new Estudiante(rut,nombre,carrera, semestre,correoE, contraseña);
+			estudiantes.add(estudiante);
 		}
 	}
 
@@ -150,6 +155,14 @@ public class Sistema {
 	public static ArrayList<Certificacion> getCertificaciones(){
 		return certificaciones;
 		
+	}
+	public static Usuario buscarUsuarioPorNombre(String nombre) {
+		for(Usuario u : usuarios) {
+			if(u.getNombre().equals(nombre)) {
+				return u;
+			}
+		}
+		return null;
 	}
 	public static Estudiante buscarEstudiantePorRut(String rut) {
 	    for (Estudiante e : estudiantes) {

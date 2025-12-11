@@ -14,6 +14,52 @@ public class Nota {
 		this.estado = estado;
 		this.semestre = semestre;
 	}
+
+	public String getRut() {
+		return rut;
+	}
+
+	public void setRut(String rut) {
+		this.rut = rut;
+	}
+
+	public String getCodigoAsignatura() {
+		return codigoAsignatura;
+	}
+
+	public void setCodigoAsignatura(String codigoAsignatura) {
+		this.codigoAsignatura = codigoAsignatura;
+	}
+
+	public double getCalificacion() {
+		return calificacion;
+	}
+
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(String semestre) {
+		this.semestre = semestre;
+	}
+
+	@Override
+	public String toString() {
+		return "Nota{rut=" + rut + ", codigoAsignatura=" + codigoAsignatura + ", calificacion=" + calificacion
+				+ ", estado=" + estado + ", semestre=" + semestre + "}";
+	}
 	
 	
 }

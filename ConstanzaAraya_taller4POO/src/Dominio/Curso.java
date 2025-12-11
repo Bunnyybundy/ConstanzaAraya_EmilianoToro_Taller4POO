@@ -22,14 +22,50 @@ public class Curso implements visitable {
 		this.prerrequisitos = prerrequisitos;
 	}
 
+   public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+
+	public int getCreditos() {
+		return creditos;
+	}
+
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public List<String> getPrerrequisitos() {
+		return prerrequisitos;
+	}
+
+	public void setPrerrequisitos(List<String> prerrequisitos) {
+		this.prerrequisitos = prerrequisitos;
+	}
+
 	public String getNrc() {
 		return nrc;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-	
    @Override
     public void accept(visitor v) {
         v.visit(this);

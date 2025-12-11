@@ -5,61 +5,43 @@ import Patrones.visitor;
 
 public class Estudiante extends Usuario implements visitable {
 	private String rut;
-	private String nombre;
 	private String carrera; 
+	private int semestre;
 	private String correoE;
-	private String contraseña;
 	
-	public Estudiante(String rut, String nombre, String carrera, String correoE, String contraseña) {
+	public Estudiante(String rut, String nombre, String carrera, int semestre, String correoE, String contraseña) {
 		super(nombre,contraseña,"Estudiante");
 		this.rut = rut;
-		this.nombre = nombre;
 		this.carrera = carrera;
+		this.semestre = semestre;
 		this.correoE = correoE;
-		this.contraseña = contraseña;
 	}
-
 	public String getRut() {
 		return rut;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public String getCarrera() {
+    public String getCarrera() {
 		return carrera;
 	}
-
-	public String getCorreoE() {
-		return correoE;
-	}
-
-	public String getContraseña() {
-		return contraseña;
-	}
-
-	public void setRut(String rut) {
-		this.rut = rut;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public void setCarrera(String carrera) {
 		this.carrera = carrera;
+	}
+	public int getSemestre() {
+		return semestre;
+	}
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+	public String getCorreoE() {
+		return correoE;
 	}
 
 	public void setCorreoE(String correoE) {
 		this.correoE = correoE;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
 
-    @Override
+	@Override
     public void accept(visitor v) {
         v.visit(this);
     }
