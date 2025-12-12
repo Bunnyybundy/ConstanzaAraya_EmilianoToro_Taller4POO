@@ -1,9 +1,15 @@
 package Logica;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import Dominio.*;
 import Patrones.*;
@@ -17,7 +23,8 @@ public class Sistema {
 	private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
 	private static ArrayList<Certificacion> certificaciones = new ArrayList<>();
 	private static ArrayList<AsignaturasCertificacion> asignaturas = new ArrayList<>();
-	
+	private static ArrayList<RegistroCertificacion> registros = new ArrayList<>();
+	private static ArrayList<Nota> nota = new ArrayList<>();
 	private static Sistema instancia;
 	
 	private Sistema() {
@@ -61,6 +68,7 @@ public class Sistema {
 			int progreso = Integer.parseInt(parte[4]);
 			
 			RegistroCertificacion registro = new RegistroCertificacion(rut,idCertificacion,fechaRegistro, estado, progreso);
+			registros.add(registro);
 		}
 	}
 
@@ -76,6 +84,7 @@ public class Sistema {
 			String semestre = parte[4];
 			
 			Nota notas = new Nota(rut, codigoAsignatura,calificacion, estado, semestre);
+			nota.add(notas);
 		}
 	}
 
@@ -161,7 +170,10 @@ public class Sistema {
 		return cursos;
 		
 	}
-	
+	public static ArrayList<RegistroCertificacion> getRegistros(){
+		return registros;
+		
+	}
 	
 	
 	public static Usuario buscarUsuarioPorNombre(String nombre) {
@@ -193,6 +205,94 @@ public class Sistema {
 	    for (Certificacion c : certificaciones) {
 	        c.accept(v);
 	    }
+	}
+
+	public static Certificacion buscarCertificacionPorNombre(String seleccion) {
+		for(Certificacion c : certificaciones) {
+			if(c.getNombre().equalsIgnoreCase(seleccion)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	public static void generarCertificado(Estudiante est, Certificacion cert) {
+		Validar_CertiVisitor visitor = new Validar_CertiVisitor(est);
+		cert.accept(visitor);
+		
+		if(visitor.cumpleRequisitos()) {
+			
+            String linea = est.getRut() + ";" + cert.getId() + ";Completado";
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/certificados.txt", true))) {
+                bw.write(linea);
+                bw.newLine();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al guardar certificado: " + ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            JOptionPane.showMessageDialog(null,"Certificado generado para " + est.getNombre() +" en la certificación " + cert.getNombre());
+        } else {
+            JOptionPane.showMessageDialog(null,
+                "El estudiante " + est.getNombre() +" aún no cumple los requisitos de " + cert.getNombre());
+        }
+	}
+
+	public static int contarInscritos(String id) {
+		int count = 0;
+		for(RegistroCertificacion r :  registros) {
+			if(r.getIdCertificacion().equals(id)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static List<Curso> getCursosRequeridos(String id) {
+		List<Curso> lista = new ArrayList<>();
+		for(AsignaturasCertificacion ac : asignaturas) {
+			if(ac.getIdCertificacion().equals(ac.getNrcCursos())) {
+				Curso c = buscarCursoPorNRC(ac.getNrcCursos());
+				if(c != null) {
+					lista.add(c);
+				}
+			}
+			
+		}
+		return lista;
+	}
+
+	public static double porcentajeReprobacionCurso(String nrc) {
+		int total = 0;
+		int reprobados = 0;
+		
+		for(Nota n :  nota) {
+			if(n.getCodigoAsignatura().equals(nrc)) {
+				total++;
+				if(n.getEstado().equals("Reprobado")) {
+					reprobados++;
+				}
+			}
+		}
+		if(total == 0) {
+			return 0;
+		}
+		return (reprobados * 100)/total;
+		}
+
+	public static Nota[] getNotasPorRut(String rut) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static Certificacion BuscarCertificacionPorId(String idCertificacion) {
+		for(Certificacion c : certificaciones) {
+			if(c.getId().equals(idCertificacion)) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 	

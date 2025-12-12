@@ -22,10 +22,10 @@ public class MenuAdmin extends JFrame {
         add(new JScrollPane(tablaUsuarios), BorderLayout.CENTER);
 
         JPanel panelBotones = new JPanel();
-        JButton btnCrear = new JButton("Crear Usuario");
-        JButton btnModificar = new JButton("Modificar Usuario");
-        JButton btnEliminar = new JButton("Eliminar Usuario");
-        JButton btnReset = new JButton("Resetear Contraseña");
+        JButton btnCrear = new JButton("Crear Cuentas");
+        JButton btnModificar = new JButton("Modificar Cuentas");
+        JButton btnEliminar = new JButton("Eliminar Cuentas");
+        JButton btnReset = new JButton("Restablecer Contraseña");
 
         panelBotones.add(btnCrear);
         panelBotones.add(btnModificar);
@@ -36,7 +36,7 @@ public class MenuAdmin extends JFrame {
         btnCrear.addActionListener(e -> crearUsuario());
         btnModificar.addActionListener(e -> modificarSeleccionado());
         btnEliminar.addActionListener(e -> eliminarSeleccionado());
-        btnReset.addActionListener(e -> resetearSeleccionado());
+        btnReset.addActionListener(e -> restablecerSeleccionado());
     }
 
     private void cargarUsuarios() {
@@ -107,7 +107,7 @@ public class MenuAdmin extends JFrame {
         cargarUsuarios();
     }
 
-    private void resetearSeleccionado() {
+    private void restablecerSeleccionado() {
         int fila = tablaUsuarios.getSelectedRow();
         if (fila < 0) { JOptionPane.showMessageDialog(this, "Seleccione un usuario."); return; }
         String nombre = (String) modelo.getValueAt(fila, 0);
