@@ -88,12 +88,27 @@ public class MenuEstudiante extends JFrame {
      * @return panel de progreso
      */
     private JPanel crearPanelProgreso() {
-        JPanel panel = new JPanel(new GridLayout(0,1));
+    	JPanel panel = new JPanel(new GridLayout(0,1));
         JProgressBar barra = new JProgressBar(0,100);
         barra.setValue(50);
         barra.setStringPainted(true);
         panel.add(new JLabel("Certificación A"));
         panel.add(barra);
+        JButton btnActualizar = new JButton("Actualizar Progreso");
+        btnActualizar.addActionListener(e -> {
+            int nuevoProgreso = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese nuevo progreso (0-100):"));
+            barra.setValue(nuevoProgreso);
+
+            // Aquí deberías buscar el registro real del estudiante y actualizarlo
+            for (RegistroCertificacion reg : Sistema.getRegistros()) {
+                if (reg.getRut().equals(estudiante.getRut())) {
+                    reg.setProgreso(nuevoProgreso);
+                    // Persistencia en archivo
+                    Sistema.guardarRegistros("registros.txt");
+                }
+            }
+        });
+        panel.add(btnActualizar);
         return panel;
     }
 }
