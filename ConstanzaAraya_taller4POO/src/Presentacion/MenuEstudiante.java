@@ -7,6 +7,8 @@ import Logica.Sistema;
 import java.util.List;
 
 public class MenuEstudiante extends JFrame {
+	private static final long serialVersionUID = 1L;
+
     private Estudiante estudiante;
 
     public MenuEstudiante(Estudiante estudiante) {

@@ -8,6 +8,8 @@ import Dominio.*;
 import Logica.Sistema;
 
 public class VentanaLogin extends JFrame{
+	private static final long serialVersionUID = 1L;
+
 	private JTextField txtUsuario;
 	private JPasswordField txtContraseña;
 	private JButton btnLogin;

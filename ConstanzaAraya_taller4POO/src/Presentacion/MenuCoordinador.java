@@ -4,26 +4,15 @@ import java.awt.BorderLayout;
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-import Dominio.Certificacion;
-import Dominio.Curso;
-import Dominio.Estudiante;
-import Dominio.Nota;
-import Dominio.RegistroCertificacion;
+import Dominio.*;
 import Logica.Sistema;
 import Patrones.Validar_CertiVisitor;
 
 public class MenuCoordinador extends JFrame {
+	private static final long serialVersionUID = 1L;
+
     public MenuCoordinador() {
         setTitle("Menú Coordinador");
         setSize(800,500);

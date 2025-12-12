@@ -7,6 +7,8 @@ import Dominio.*;
 import Logica.Sistema;
 
 public class MenuAdmin extends JFrame {
+	private static final long serialVersionUID = 1L;
+
     private JTable tablaUsuarios;
     private DefaultTableModel modelo;
 
@@ -90,18 +92,17 @@ public class MenuAdmin extends JFrame {
         if (fila < 0) { JOptionPane.showMessageDialog(this, "Seleccione un usuario."); return; }
         String nombre = (String) modelo.getValueAt(fila, 0);
 
-        for (int i = 0; i < Sistema.getUsuarios().size(); i++) {
-            if (Sistema.getUsuarios().get(i).getNombre().equals(nombre)) {
-                Usuario u = Sistema.getUsuarios().remove(i);
-                if (u instanceof Estudiante) {
-                    for (int j = 0; j < Sistema.getEstudiantes().size(); j++) {
-                        if (Sistema.getEstudiantes().get(j).getNombre().equals(nombre)) {
-                            Sistema.getEstudiantes().remove(j);
-                            break;
-                        }
-                    }
-                }
-                break;
+        Usuario u = Sistema.buscarUsuarioPorNombre(nombre);
+        if(u != null) {
+        	Sistema.getUsuarios().remove(u);
+        	if(u instanceof Estudiante) {		
+        		Estudiante est = (Estudiante) u;
+        		Sistema.getEstudiantes().remove(est);
+        		Sistema.getNota().removeIf(n -> n.getRut().equals(est.getRut()));
+        		Sistema.getRegistros().removeIf(r -> r.getRut().equals(est.getRut()));  
+        		}
+                if(u instanceof Coordinador) {
+                	Sistema.getCertificaciones().removeIf(c -> c.getDescripcion().contains(u.getNombre()));
             }
         }
         cargarUsuarios();

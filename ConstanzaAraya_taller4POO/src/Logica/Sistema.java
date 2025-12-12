@@ -139,6 +139,7 @@ public class Sistema {
 			int validez = Integer.parseInt(parte[4]);
 			
 			Certificacion certificacion = new Certificacion(id,nombre,descripcion,requisitos,validez);
+			certificaciones.add(certificacion);
 		}
 	}
 
@@ -151,6 +152,7 @@ public class Sistema {
 			String nrc = parte[1];
 			
 			AsignaturasCertificacion asigCertificacion = new AsignaturasCertificacion(id, nrc);
+			asignaturas.add(asigCertificacion);
 		}
 	}
 	
@@ -163,18 +165,19 @@ public class Sistema {
 	
 	public static ArrayList<Certificacion> getCertificaciones(){
 		return certificaciones;
-		
 	}
-	
 	public static ArrayList<Curso> getCursos(){
-		return cursos;
-		
+		return cursos;	
 	}
 	public static ArrayList<RegistroCertificacion> getRegistros(){
 		return registros;
-		
 	}
-	
+	public static ArrayList<AsignaturasCertificacion> getAsignaturas(){
+		return asignaturas;	
+	}
+	public static ArrayList<Nota> getNota(){
+		return nota;
+	}
 	
 	public static Usuario buscarUsuarioPorNombre(String nombre) {
 		for(Usuario u : usuarios) {
