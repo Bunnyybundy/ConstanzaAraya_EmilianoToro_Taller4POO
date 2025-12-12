@@ -83,23 +83,6 @@ public class Sistema {
 			registros.add(registro);
 		}
 	}
-	/**
-	 * Guarda la lista actual de usuarios en el archivo especificado.
-	 * 
-	 * Cada usuario se escribe en una línea con el formato:
-	 * nombre;contraseña;rol
-	 * 
-	 * @param archivo nombre del archivo donde se guardarán los usuarios (ej. "usuarios.txt")
-	 */
-	public static void guardarUsuarios(String archivo) {
-	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
-	        for (Usuario u : usuarios) {
-	            pw.println(u.getNombre() + ";" + u.getContraseña() + ";" + u.getRol());
-	        }
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
     /** Lee notas desde archivo */
 	public static void leerNotas(String archivo) throws FileNotFoundException {
 		s = new Scanner(new File(archivo));
@@ -341,6 +324,32 @@ public class Sistema {
 			}
 		}
 		return null;
+	}
+	/**
+	 * Guarda la lista actual de usuarios en el archivo especificado.
+	 * 
+	 * Cada usuario se escribe en una línea con el formato:
+	 * nombre;contraseña;rol
+	 * 
+	 * @param archivo nombre del archivo donde se guardarán los usuarios (ej. "usuarios.txt")
+	 */
+	public static void guardarUsuarios(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Usuario u : usuarios) {
+	            if (u instanceof Administrador) {
+	                pw.println(u.getNombre() + ";" + u.getContraseña() + ";Admin");
+	            } else if (u instanceof Coordinador) {
+	                Coordinador c = (Coordinador) u;
+	                pw.println(c.getNombre() + ";" + c.getContraseña() + ";Coordinador;" + c.getArea());
+	            } else if (u instanceof Estudiante) {
+	                Estudiante e = (Estudiante) u;
+	                pw.println(e.getRut() + ";" + e.getNombre() + ";" + e.getCarrera() + ";" +
+	                           e.getSemestre() + ";" + e.getCorreoE() + ";" + e.getContraseña() + ";Estudiante");
+	            }
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 	/**
 	 * Guarda todas las notas en el archivo indicado.
