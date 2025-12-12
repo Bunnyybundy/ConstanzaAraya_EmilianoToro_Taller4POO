@@ -82,3 +82,20 @@ El sistema está organizado en *arquitectura de 3 capas*:
 - asignaturas_certificaciones.txt → Relación entre cursos y certificaciones.  
 
 ---
+## ▶️ Instrucciones de ejecución
+
+### 1. Requisitos previos
+- Java JDK 8 o superior instalado.
+- Archivos de datos (`usuarios.txt`, `registros.txt`, `notas.txt`, `estudiantes.txt`, `cursos.txt`, `certificaciones.txt`, `asignaturas_certificaciones.txt`) en la carpeta raíz del proyecto.
+
+---
+
+### 2. Compilación desde terminal
+Si tu código fuente está en la carpeta `src/`:
+
+```bash
+# Entrar a la carpeta del proyecto
+cd proyecto
+
+# Compilar todas las clases dentro de src
+javac -d bin src/**/*.java
