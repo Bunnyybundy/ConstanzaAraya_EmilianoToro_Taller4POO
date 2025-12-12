@@ -342,6 +342,82 @@ public class Sistema {
 		}
 		return null;
 	}
-
-	
+	/**
+	 * Guarda todas las notas en el archivo indicado.
+	 * Formato: rut;codigoAsignatura;calificacion;estado;semestre
+	 *
+	 * @param archivo nombre del archivo de salida (ej. "notas.txt")
+	 */
+	public static void guardarNotas(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Nota n : nota) {
+	            pw.println(n.getRut() + ";" + n.getCodigoAsignatura() + ";" +
+	                       n.getCalificacion() + ";" + n.getEstado() + ";" + n.getSemestre());
+	        }
+	    } catch (IOException ex) {
+	        ex.printStackTrace();
+	    }
+	}
+	/**
+	 * Guarda todos los registros de certificaciones en el archivo indicado.
+	 * Formato: rut;idCertificacion;estado;progreso
+	 *
+	 * @param archivo nombre del archivo de salida (ej. "registros.txt")
+	 */
+	public static void guardarRegistros(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (RegistroCertificacion r : registros) {
+	            pw.println(r.getRut() + ";" + r.getIdCertificacion() + ";" +
+	                       r.getEstado() + ";" + r.getProgreso());
+	        }
+	    } catch (IOException ex) {
+	        ex.printStackTrace();
+	    }
+	}
+	/**
+	 * Guarda todos los estudiantes en el archivo indicado.
+	 * Formato: rut;nombre;carrera;semestre;correo;contraseña
+	 *
+	 * @param archivo nombre del archivo de salida (ej. "estudiantes.txt")
+	 */
+	public static void guardarEstudiantes(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Estudiante e : estudiantes) {
+	            pw.println(e.getRut() + ";" + e.getNombre() + ";" + e.getCarrera() + ";" +
+	                       e.getSemestre() + ";" + e.getCorreoE() + ";" + e.getContraseña());
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	/**
+	 * Guarda todas las certificaciones en el archivo indicado.
+	 * Formato: id;nombre;descripcion
+	 *
+	 * @param archivo nombre del archivo de salida (ej. "certificaciones.txt")
+	 */
+	public static void guardarCertificaciones(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Certificacion c : certificaciones) {
+	            pw.println(c.getId() + ";" + c.getNombre() + ";" + c.getDescripcion());
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	/**
+	 * Guarda todos los cursos en el archivo indicado.
+	 * Formato: nrc;nombre;creditos
+	 *
+	 * @param archivo nombre del archivo de salida (ej. "cursos.txt")
+	 */
+	public static void guardarCursos(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Curso c : cursos) {
+	            pw.println(c.getNrc() + ";" + c.getNombre() + ";" + c.getCreditos());
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
 }

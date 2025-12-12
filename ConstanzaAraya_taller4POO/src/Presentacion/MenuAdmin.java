@@ -81,6 +81,7 @@ public class MenuAdmin extends JFrame {
             Coordinador cNuevo = new Coordinador(nombre, pass, area);
             Sistema.getUsuarios().add(cNuevo);
         }
+        Sistema.guardarEstudiantes("estudiantes.txt");
         Sistema.guardarUsuarios("usuarios.txt");
         cargarUsuarios();
     }
@@ -138,6 +139,7 @@ public class MenuAdmin extends JFrame {
             String nuevaClave = JOptionPane.showInputDialog(this, "Ingrese nueva contraseña:");
             if (nuevaClave != null && !nuevaClave.isEmpty()) {
                 u.setContraseña(nuevaClave);
+                Sistema.guardarEstudiantes("estudiantes.txt");
                 Sistema.guardarUsuarios("usuarios.txt");
                 JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente.");
             }
