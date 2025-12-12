@@ -1,8 +1,6 @@
 package Dominio;
 
-import Logica.visitable;
-import Logica.visitor;
-import Patrones.*;
+import Logica.*;
 /**
  * Representa una certificación académica con requisitos de créditos y validez.
  */

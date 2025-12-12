@@ -1,5 +1,6 @@
 package Presentacion;
-
+//Integrante 1: Constanza Fernanda Araya Plaza – 21.609.057-8 – ICCI
+//Integrante 2: Emiliano Ángel Toro Rojas – 21.512.702-8 – ITI
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

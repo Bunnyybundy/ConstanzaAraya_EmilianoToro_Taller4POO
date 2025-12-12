@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import Dominio.*;
-import Patrones.*;
 
 /**
  * Clase principal de lógica del sistema académico.

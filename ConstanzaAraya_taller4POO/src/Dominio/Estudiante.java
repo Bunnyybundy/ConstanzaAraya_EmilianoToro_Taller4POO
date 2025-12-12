@@ -1,7 +1,6 @@
 package Dominio;
 
-import Logica.visitable;
-import Logica.visitor;
+import Logica.*;
 /**
  * Usuario con rol de estudiante dentro del sistema académico.
  * Contiene información personal y académica como rut, carrera, semestre y correo.
