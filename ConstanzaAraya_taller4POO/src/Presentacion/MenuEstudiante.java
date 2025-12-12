@@ -99,11 +99,9 @@ public class MenuEstudiante extends JFrame {
             int nuevoProgreso = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese nuevo progreso (0-100):"));
             barra.setValue(nuevoProgreso);
 
-            // Aquí deberías buscar el registro real del estudiante y actualizarlo
             for (RegistroCertificacion reg : Sistema.getRegistros()) {
                 if (reg.getRut().equals(estudiante.getRut())) {
                     reg.setProgreso(nuevoProgreso);
-                    // Persistencia en archivo
                     Sistema.guardarRegistros("registros.txt");
                 }
             }
