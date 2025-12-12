@@ -4,7 +4,7 @@ package Presentacion;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import Logica.Sistema;
+import Logica.*;
 /**
  * Punto de entrada de la aplicación.
  * Inicializa la ventana de login y carga los datos del sistema desde archivos.
@@ -24,7 +24,6 @@ public class App {
 		new VentanaLogin().setVisible(true);
 		s = new Scanner(System.in);
 		Sistema sistema = Sistema.getInstancia();
-		
 		sistema.leerUsuarios("usuarios.txt");
 		sistema.leerRegistros("registros.txt");
 		sistema.leerNotas("notas.txt");

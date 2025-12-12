@@ -83,6 +83,23 @@ public class Sistema {
 			registros.add(registro);
 		}
 	}
+	/**
+	 * Guarda la lista actual de usuarios en el archivo especificado.
+	 * 
+	 * Cada usuario se escribe en una línea con el formato:
+	 * nombre;contraseña;rol
+	 * 
+	 * @param archivo nombre del archivo donde se guardarán los usuarios (ej. "usuarios.txt")
+	 */
+	public static void guardarUsuarios(String archivo) {
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+	        for (Usuario u : usuarios) {
+	            pw.println(u.getNombre() + ";" + u.getContraseña() + ";" + u.getRol());
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
     /** Lee notas desde archivo */
 	public static void leerNotas(String archivo) throws FileNotFoundException {
 		s = new Scanner(new File(archivo));

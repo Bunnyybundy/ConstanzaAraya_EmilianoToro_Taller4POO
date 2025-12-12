@@ -81,6 +81,7 @@ public class MenuAdmin extends JFrame {
             Coordinador cNuevo = new Coordinador(nombre, pass, area);
             Sistema.getUsuarios().add(cNuevo);
         }
+        Sistema.guardarUsuarios("usuarios.txt");
         cargarUsuarios();
     }
     /**
@@ -123,7 +124,7 @@ public class MenuAdmin extends JFrame {
         cargarUsuarios();
     }
     /**
-     * Restablece la contraseña del usuario seleccionado a "1234".
+     * Restablece la contraseña del usuario seleccionado en la tabla.
      */
     private void restablecerSeleccionado() {
         int fila = tablaUsuarios.getSelectedRow();
@@ -137,6 +138,7 @@ public class MenuAdmin extends JFrame {
             String nuevaClave = JOptionPane.showInputDialog(this, "Ingrese nueva contraseña:");
             if (nuevaClave != null && !nuevaClave.isEmpty()) {
                 u.setContraseña(nuevaClave);
+                Sistema.guardarUsuarios("usuarios.txt");
                 JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente.");
             }
         }
