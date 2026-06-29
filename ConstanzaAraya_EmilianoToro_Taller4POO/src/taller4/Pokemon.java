@@ -1,5 +1,7 @@
 package taller4;
-
+/**
+ * Carta tipo Pokemon 
+ */
 public class Pokemon extends Carta{
 	private int daño, cantEnergias;
 
@@ -18,8 +20,8 @@ public class Pokemon extends Carta{
 	}
 
 	@Override
-	public void calcularPoder() {
-		// TODO Auto-generated method stub
+	public double calcularPoder() {
+		return 0;
 		
 	}
 	

@@ -1,5 +1,7 @@
 package taller4;
-
+/**
+ * Carta tipo supporter 
+ */
 public class Supporter extends Carta{
 	private int efectosPorTurno;
 
@@ -9,7 +11,8 @@ public class Supporter extends Carta{
 	}
 
 	@Override
-	public void calcularPoder() {
+	public double calcularPoder() {
+		return 0;
 		// TODO Auto-generated method stub
 		
 	}

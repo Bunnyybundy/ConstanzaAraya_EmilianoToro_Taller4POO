@@ -1,5 +1,7 @@
 package taller4;
-
+/**
+ * Carta tipo Item 
+ */
 public class Item extends Carta{
 	private int bono;
 
@@ -13,9 +15,8 @@ public class Item extends Carta{
 	}
 
 	@Override
-	public void calcularPoder() {
-		// TODO Auto-generated method stub
-		
+	public double calcularPoder() {
+		return 0;
 	}
 	
 	

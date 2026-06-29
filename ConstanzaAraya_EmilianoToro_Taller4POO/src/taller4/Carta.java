@@ -1,5 +1,7 @@
 package taller4;
-
+/**
+ * Clase abstracta base para todas las cartas. 
+ */
 abstract class Carta {
 	protected String nombre, rareza,tipo,rutaImagen;
 
@@ -26,7 +28,12 @@ abstract class Carta {
 	public String getRutaImagen() {
 		return rutaImagen;
 	}
-	public abstract void calcularPoder();
+	
+	public void setRutaImagen(String rutaImagen) {
+		this.rutaImagen = rutaImagen;
+	}
+	//Metodo abstracto que cada subclase implementará
+	public abstract double calcularPoder();
 
 	@Override
 	public String toString() {

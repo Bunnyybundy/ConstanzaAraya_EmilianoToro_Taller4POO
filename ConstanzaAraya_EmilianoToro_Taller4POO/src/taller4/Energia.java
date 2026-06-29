@@ -1,5 +1,7 @@
 package taller4;
-
+/**
+ * Carta tipo Energy 
+ */
 public class Energia extends Carta{
 	private String elemento;
 
@@ -13,8 +15,8 @@ public class Energia extends Carta{
 	}
 
 	@Override
-	public void calcularPoder() {
-		// TODO Auto-generated method stub
+	public double calcularPoder() {
+		return 0;
 		
 	}
 	
