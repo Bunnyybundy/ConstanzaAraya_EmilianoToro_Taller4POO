@@ -13,9 +13,7 @@ public class Supporter extends Carta{
 
 	@Override
 	public double calcularPoder() {
-		return 0;
-		// TODO Auto-generated method stub
-		
+		return efectosPorTurno * 50;
 	}
 	
 	

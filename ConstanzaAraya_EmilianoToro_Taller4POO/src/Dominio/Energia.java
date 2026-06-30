@@ -17,7 +17,7 @@ public class Energia extends Carta{
 
 	@Override
 	public double calcularPoder() {
-		return 0;
+		return 1;
 		
 	}
 	

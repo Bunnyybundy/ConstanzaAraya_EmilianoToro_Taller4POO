@@ -27,14 +27,13 @@ public class SistemaImp implements Sistema {  //antes se llamaba GestorColeccion
 
 	@Override
 	public void eliminarCarta(Carta carta) {
-		for(Carta c : cartas) {
-			if(c.getNombre().equals(carta.getNombre())) {
-				cartas.remove(c);
-			}
-		}
-		
+	    for(int i = 0; i < cartas.size(); i++) {
+	        if(cartas.get(i).getNombre().equals(carta.getNombre())) {
+	            cartas.remove(i);
+	            break;
+	        }
+	    }
 	}
-
 	@Override
 	public void modificarCarta(Carta carta) {
 		// TODO Auto-generated method stub
@@ -43,8 +42,7 @@ public class SistemaImp implements Sistema {  //antes se llamaba GestorColeccion
 
 	@Override
 	public List<Carta> getCartas() {
-		// TODO Auto-generated method stub
-		return null;
+		return cartas;
 	}
 	
 

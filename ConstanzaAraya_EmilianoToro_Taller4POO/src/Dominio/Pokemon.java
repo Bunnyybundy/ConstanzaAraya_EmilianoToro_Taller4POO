@@ -22,10 +22,14 @@ public class Pokemon extends Carta{
 
 	@Override
 	public double calcularPoder() {
-		return 0;
-		
+		return ((double) daño / cantEnergias) * 100;
+
 	}
+
 	
+
 	
+
+
 	
 }

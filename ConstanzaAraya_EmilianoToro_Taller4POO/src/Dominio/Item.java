@@ -17,8 +17,10 @@ public class Item extends Carta{
 
 	@Override
 	public double calcularPoder() {
-		return 0;
+		return bono * 20;
+
 	}
-	
+
+
 	
 }
