@@ -2,7 +2,7 @@ package Dominio;
 /**
  * Clase abstracta base para todas las cartas. 
  */
-abstract class Carta {
+public abstract class Carta {
 	protected String nombre, rareza,tipo,rutaImagen;
 
 	public Carta(String nombre, String rareza, String tipo, String rutaImagen) {
