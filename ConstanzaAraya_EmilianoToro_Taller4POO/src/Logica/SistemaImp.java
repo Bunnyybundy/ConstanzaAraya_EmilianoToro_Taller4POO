@@ -1,5 +1,6 @@
 package Logica;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import Dominio.*;
@@ -7,8 +8,10 @@ import Dominio.*;
 public class SistemaImp implements Sistema {  //antes se llamaba GestorColeccion lo cambie de nombre por comodidad
 	private static Sistema instancia;
 	private List<Carta> cartas;
+	private GestorArchivo gestorArch;
 	
 	private SistemaImp() {
+		this.gestorArch = GestorArchivo.getInstanciaGestor();
 		this.cartas = new ArrayList<Carta>();
 	}
 
@@ -43,6 +46,14 @@ public class SistemaImp implements Sistema {  //antes se llamaba GestorColeccion
 	@Override
 	public List<Carta> getCartas() {
 		return cartas;
+	}
+	
+	
+	@Override
+	public void gestionarArch() throws FileNotFoundException {
+		gestorArch.abrirArch(this);
+		
+		
 	}
 	
 

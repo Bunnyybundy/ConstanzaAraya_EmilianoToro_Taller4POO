@@ -1,5 +1,6 @@
 package Logica;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import Dominio.Carta;
@@ -14,5 +15,7 @@ public interface Sistema {
 	void modificarCarta(Carta carta);
 
 	List<Carta> getCartas();
+	
+	void gestionarArch() throws FileNotFoundException;
 
 }

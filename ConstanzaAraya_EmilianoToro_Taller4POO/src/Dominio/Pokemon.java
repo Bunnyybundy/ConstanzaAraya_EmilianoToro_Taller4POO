@@ -28,7 +28,13 @@ public class Pokemon extends Carta{
 
 	
 
-	
+	@Override
+	public void aceptar(Visitor visitor) {
+		visitor.visitar(this);
+
+	}
+
+
 
 
 	

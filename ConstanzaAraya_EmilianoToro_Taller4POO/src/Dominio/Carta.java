@@ -29,6 +29,11 @@ public abstract class Carta {
 		return rutaImagen;
 	}
 	
+	
+	public abstract void aceptar(Visitor visitor);
+
+
+	
 	public void setRutaImagen(String rutaImagen) {
 		this.rutaImagen = rutaImagen;
 	}

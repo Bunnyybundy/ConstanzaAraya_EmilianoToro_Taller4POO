@@ -16,5 +16,12 @@ public class Supporter extends Carta{
 		return efectosPorTurno * 50;
 	}
 	
+	@Override
+	public void aceptar(Visitor visitor) {
+		visitor.visitar(this);
+
+	}
+
+
 	
 }

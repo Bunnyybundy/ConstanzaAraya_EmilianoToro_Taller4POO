@@ -20,6 +20,13 @@ public class Item extends Carta{
 		return bono * 20;
 
 	}
+	
+	@Override
+	public void aceptar(Visitor visitor) {
+		visitor.visitar(this);
+
+	}
+
 
 
 	

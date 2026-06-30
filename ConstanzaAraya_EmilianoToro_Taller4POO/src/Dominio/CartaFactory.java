@@ -3,8 +3,7 @@ package Dominio;
 public class CartaFactory {
 	
 
-	public static Carta crearCarta(String linea) {
-		String[] partes = linea.split(";");
+	public Carta crearCarta(String[] partes) {
 		String nombre = partes[0];
 		String rareza = partes[1];
 		String tipo = partes[2];
